@@ -2,7 +2,8 @@
 
 using namespace std;
 
-long long gcd(long long a,long long b){
+template <typename T>
+T gcd(T a,T b){
     // exchange a and b
     if(a < b){
       a = a ^ b;
@@ -15,12 +16,15 @@ long long gcd(long long a,long long b){
       b = temp;
     }
     return b;
+}
 
-
+template <typename T>
+T lcm(T a,T b){
+  return a * b / gcd<T>(a,b);
 }
 
 int main(int argc, char const *argv[]) {
   /* code */
-  cout << gcd(10,100) << endl;
+  cout << gcd<int>(10,100) << endl;
   return 0;
 }
